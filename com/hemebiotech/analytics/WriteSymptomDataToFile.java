@@ -3,11 +3,13 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 import java.io.FileWriter;
 import java.util.Map.Entry;
+import java.io.IOException;
 
 public class WriteSymptomDataToFile implements ISymptomWriter
 {
 
-  public void writeSymptoms(Map<String, Integer> symptoms) throws Exception {
+  public void writeSymptoms(Map<String, Integer> symptoms) {
+    try {
 
     FileWriter writer = new FileWriter ("result.out");
 		// Boucle qui ecrit chaque ligne reçu, jusqu'à entry=null
@@ -21,5 +23,9 @@ public class WriteSymptomDataToFile implements ISymptomWriter
 		System.out.println("WriteSymptomDataToFile Finished...");
 		// ferme le writer
 		writer.close();
+    
+    } catch (IOException e) {
+			e.printStackTrace();
+		}
   }
 }
