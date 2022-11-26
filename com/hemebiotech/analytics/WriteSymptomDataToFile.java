@@ -7,6 +7,15 @@ import java.io.IOException;
 
 public class WriteSymptomDataToFile implements ISymptomWriter
 {
+  	private String filepath;
+	
+	/**
+	 * 
+	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 */
+	public WriteSymptomDataToFile (String filepath) {
+		this.filepath = filepath;
+	}
 
   public void writeSymptoms(Map<String, Integer> symptoms) {
     try {
